@@ -2,6 +2,8 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\Pichau\Desktop\Java Spring Professional\COMPONENTES E INJEÇÃO DE DEPENDENCIA\Solução_pensando_em_componentes"/>
+			<item value="C:\Users\Pichau\Desktop\Java Spring Professional\MODELO DE DOMINIO E ORM\dscommerce"/>
 			<item value="C:\Users\Pichau\Desktop\Java Spring Professional\MODELO DE DOMINIO E ORM\Super revisão de OO e SQL com Java e JDBC\jdbc-postgres"/>
 		</list>
 		<list key="projectNameTemplate">
@@ -12,5 +14,9 @@
 			<item value="[groupId].[artifactId]-[version]"/>
 			<item value="[name]"/>
 		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
 	</section>
 </section>
