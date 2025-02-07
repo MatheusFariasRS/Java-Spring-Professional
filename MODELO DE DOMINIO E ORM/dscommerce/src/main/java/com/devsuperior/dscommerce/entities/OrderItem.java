@@ -1,5 +1,7 @@
 package com.devsuperior.dscommerce.entities;
 
+import java.util.Objects;
+
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -10,6 +12,7 @@ public class OrderItem {
 
 	@EmbeddedId
 	private OrderItemPK id = new OrderItemPK();
+
 	private Integer quantity;
 	private Double price;
 
@@ -21,6 +24,22 @@ public class OrderItem {
 		id.setProduct(product);
 		this.quantity = quantity;
 		this.price = price;
+	}
+
+	public Order getOrder() {
+		return id.getOrder();
+	}
+
+	public void setOrder(Order order) {
+		id.setOrder(order);
+	}
+
+	public Product getProduct() {
+		return id.getProduct();
+	}
+
+	public void setProduct(Product product) {
+		id.setProduct(product);
 	}
 
 	public Integer getQuantity() {
@@ -39,21 +58,20 @@ public class OrderItem {
 		this.price = price;
 	}
 
-	public Order getOrder() {
-		return id.getOrder();
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
+
+		OrderItem orderItem = (OrderItem) o;
+
+		return Objects.equals(id, orderItem.id);
 	}
 
-	public void setOrder(Order order) {
-		id.setOrder(order);
-
+	@Override
+	public int hashCode() {
+		return id != null ? id.hashCode() : 0;
 	}
-
-	public Product getProduct() {
-		return id.getProduct();
-	}
-
-	public void setProduct(Product product) {
-		id.setProduct(product);
-	}
-
 }

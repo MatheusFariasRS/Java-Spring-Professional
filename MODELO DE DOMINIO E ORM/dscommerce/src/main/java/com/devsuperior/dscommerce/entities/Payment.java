@@ -1,6 +1,7 @@
 package com.devsuperior.dscommerce.entities;
 
 import java.time.Instant;
+import java.util.Objects;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,7 +13,7 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "tb_Payment")
+@Table(name = "tb_payment")
 public class Payment {
 
 	@Id
@@ -27,11 +28,9 @@ public class Payment {
 	private Order order;
 
 	public Payment() {
-
 	}
 
 	public Payment(Long id, Instant moment, Order order) {
-		super();
 		this.id = id;
 		this.moment = moment;
 		this.order = order;
@@ -61,4 +60,20 @@ public class Payment {
 		this.order = order;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
+
+		Payment payment = (Payment) o;
+
+		return Objects.equals(id, payment.id);
+	}
+
+	@Override
+	public int hashCode() {
+		return id != null ? id.hashCode() : 0;
+	}
 }
